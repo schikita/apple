@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#1d2418" />
+
+  <!-- SEO -->
+  <title>Яблочная история — куда отправляют тонны собранных плодов, как их хранят и что из них производят</title>
+  <meta name="description" content="Яблочная история: как в Беларуси собирают яблоки, хранят их в регулируемой газовой среде и перерабатывают в соки, пюре и детское питание. Репортаж из садов «Бугагроинвест» и завода «Гамма вкуса»." />
+  <meta name="keywords" content="яблоки, Беларусь, сад, урожай, хранение яблок, регулируемая газовая среда, детское питание, пюре, сок, яблочная история, переработка" />
+  <meta name="author" content="Александра Янкович, Арина Богдан" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://example.com/yablochnaya-istoriya/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Яблочная история" />
+  <meta property="og:description" content="Куда отправляют тонны собранных плодов, как их хранят и какую продукцию из них производят?" />
+  <meta property="og:locale" content="ru_RU" />
+  <meta property="og:site_name" content="Яблочная история" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Яблочная история" />
+  <meta name="twitter:description" content="Куда отправляют тонны собранных плодов, как их хранят и какую продукцию из них производят?" />
+
+  <!-- Favicon (inline apple SVG) -->
+  <link rel="icon" type="image/png" href="assets/img/logo.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,500;1,700&family=Comfortaa:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- JSON-LD Article schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Яблочная история",
+    "description": "Куда отправляют тонны собранных плодов, как их хранят и какую продукцию из них производят?",
+    "inLanguage": "ru",
+    "author": [
+      { "@type": "Person", "name": "Александра Янкович" },
+      { "@type": "Person", "name": "Арина Богдан" }
+    ],
+    "publisher": { "@type": "Organization", "name": "Яблочная история" },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://example.com/yablochnaya-istoriya/" }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Scroll progress -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- ===================== NAVIGATION ===================== -->
+  <header class="site-nav" id="siteNav">
+    <div class="nav-inner">
+      <a class="brand" href="#top" aria-label="Яблочная история — на главную">
+        <img class="brand-logo" src="assets/img/logo.png" alt="Логотип «Яблочная история»" width="34" height="34" />
+        <span class="brand-text">Яблочная&nbsp;история</span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="navMenu">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+
+      <nav class="nav-menu" id="navMenu" aria-label="Разделы статьи">
+        <a href="#upast" class="nav-link">Упасть негде</a>
+        <a href="#vyrastit" class="nav-link">Вырастить&nbsp;–&nbsp;мало</a>
+        <a href="#osnova" class="nav-link">«Яблоко&nbsp;–&nbsp;основа»</a>
+        <a href="#polufabrikat" class="nav-link">Универсальный&nbsp;полуфабрикат</a>
+        <a href="#kanony" class="nav-link">По&nbsp;всем&nbsp;канонам</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ===================== HERO ===================== -->
+    <section class="section hero" aria-label="Заголовок статьи">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="hero-orb hero-orb-1"></div>
+        <div class="hero-orb hero-orb-2"></div>
+        <div class="hero-orb hero-orb-3"></div>
+      </div>
+
+      <div class="container hero-content">
+        <p class="hero-kicker reveal">ЖИВОЙ РЕПОРТАЖ</p>
+        <div class="hero-header-group">
+          <h1 class="h1"><span class="h1-line">Яблочная</span><span class="h1-line is-right">история</span></h1>
+        </div>
+        <div class="hero-text-group">
+          <p class="body1">Куда отправляют тонны собранных плодов, как их хранят и какую продукцию из них производят?</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== INTRO ===================== -->
+    <section class="section is-grey" id="intro">
+      <div class="container intro-grid">
+        <div class="intro-text">
+          <p class="body2 reveal">Яблоня&nbsp;— одно из главных деревьев в белорусском саду. Из&nbsp;её плодов готовят разные вкусности, выжимают сок, закатывают пюре, варенье, сушат и&nbsp;мочат. В&nbsp;этом году сады радуют щедрым урожаем.</p>
+          <p class="body2 reveal">Поэтому перерабатывающие предприятия работают в&nbsp;напряжённом режиме, ведь важно успеть сохранить и&nbsp;переработать собранные плоды.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== УПАСТЬ НЕГДЕ ===================== -->
+    <section class="section is-white" id="upast">
+      <div class="container">      
+
+        <div class="media-row">
+          
+          <div class="prose">
+             <div class="screen-header reveal">
+          <h2 class="h2">Упасть</h2>
+          <h2 class="h2 is-right-100">негде</h2>
+        </div>
+            <p class="body2 reveal">В&nbsp;фермерском хозяйстве «Бугагроинвест» Каменецкого района яблочная уборка начинается в&nbsp;августе и&nbsp;длится до&nbsp;середины ноября. В&nbsp;нынешнем сезоне работы много. После почти безурожайного прошлого года яблони снова хорошо плодоносят.</p>
+          </div>
+          <div class="media-photo reveal">
+            <img src="assets/img/upast_negde.png" alt="Уборка яблок в саду" loading="lazy" />
+          </div>
+        </div>
+
+        <div class="prose prose-full">
+          <p class="body2 reveal">Сад занимает 110&nbsp;гектаров. Сорта здесь подобраны так, чтобы поспевать друг за&nbsp;другом: в&nbsp;августе начинают с&nbsp;ранних «пироса» и&nbsp;«делькорфа», позже наступает черёд «хани крисп», «голден делишеса», «лигола», «ред&nbsp;чифа», «глостера», «айдареда» и&nbsp;«альвы». Поэтому уборка растягивается на&nbsp;несколько месяцев&nbsp;— одни яблоки уже сняли, другие ещё дозревают. В&nbsp;разгар сезона в&nbsp;саду работают около 60–70&nbsp;человек.</p>
+        </div>
+
+        <div class="quote-media">
+          <div class="quote-photo reveal">
+            <img src="assets/img/rannie_sorta.jpg" alt="Ранние сорта яблок" loading="lazy" />
+          </div>
+          <blockquote class="quote reveal">
+            <p>«Ранние сорта начали снимать примерно с&nbsp;3&nbsp;августа, поздние&nbsp;— с&nbsp;14&nbsp;сентября. Рассчитываем закончить к&nbsp;середине ноября. Работаем с&nbsp;платформ: четыре используются для сбора яблок наверху, ещё четыре&nbsp;— внизу. На&nbsp;каждом тракторе размещается по&nbsp;семь контейнеров».</p>
+          </blockquote>
+        </div>
+
+        <div class="prose prose-full">
+          <p class="body2 reveal">Первые деревья здесь посадили в&nbsp;2012&nbsp;году. Тогда восемь гектаров отвели под белорусские саженцы. За&nbsp;садом ухаживали, ждали, когда он&nbsp;начнёт давать хороший урожай, но&nbsp;через пять лет получили около пяти тонн яблок с&nbsp;гектара. Позднее попробовали польские саженцы. Они уже на&nbsp;третий год дали около 30&nbsp;тонн с&nbsp;гектара. После такого сравнения руководитель хозяйства Юрий Федкович решил заменить первые посадки.</p>
+        </div>
+
+        <div class="quote-media is-reverse">
+          <blockquote class="quote is-green reveal">
+            <p>«Выкорчевать сад, в&nbsp;который пять лет вкладывал силы и&nbsp;деньги, непросто. Но&nbsp;восемь гектаров земли должны давать результат. Мы посадили новые деревья, сейчас об&nbsp;этом решении не&nbsp;жалеем».</p>
+          </blockquote>
+          <div class="quote-photo reveal">
+            <img src="assets/img/sad.jpg" alt="Яблоневый сад" loading="lazy" />
+          </div>
+        </div>
+
+        <div class="collage">
+          <div class="collage-visual reveal">
+            <div class="carousel" data-carousel>
+              <div class="carousel-track">
+                <div class="carousel-slide is-active"><img src="assets/img/uborka.jpg" alt="Уборка яблок" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="assets/img/rannie_sorta.jpg" alt="Ранние сорта яблок" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="assets/img/sad.jpg" alt="Яблоневый сад" loading="lazy" /></div>
+              </div>
+              <button class="carousel-btn carousel-prev" type="button" aria-label="Предыдущее фото">‹</button>
+              <button class="carousel-btn carousel-next" type="button" aria-label="Следующее фото">›</button>
+              <div class="carousel-dots">
+                <button class="carousel-dot is-active" type="button" aria-label="Фото 1"></button>
+                <button class="carousel-dot" type="button" aria-label="Фото 2"></button>
+                <button class="carousel-dot" type="button" aria-label="Фото 3"></button>
+              </div>
+            </div>
+          </div>
+          <div class="collage-text">
+            <p class="body2 reveal">Впрочем, даже хороший сад не&nbsp;застрахован от&nbsp;непогоды. Позапрошлой осенью хозяйство собрало тысячу тонн яблок, а&nbsp;прошлой&nbsp;— всего 60. Во&nbsp;время цветения две ночи подряд температура опускалась до&nbsp;минус десяти градусов. Мороз повредил цветки, и&nbsp;урожая почти не&nbsp;было.</p>
+            <p class="body2 reveal">Нынешней весной прогноз снова заставил садоводов беспокоиться. Подготовили тракторы и&nbsp;прицепы, ездили между рядами, окуривали посадки дымом. На&nbsp;этот раз температура опускалась до&nbsp;минус четырёх градусов.</p>
+          </div>
+        </div>
+
+        <div class="media-row is-right-photo">
+          <div class="media-stack">
+            <blockquote class="quote reveal">
+              <p>«110&nbsp;гектаров не&nbsp;согреешь, как теплицу. При минус десяти помочь деревьям почти нечем. А&nbsp;в&nbsp;этот раз мороз был слабее, и&nbsp;мы сделали всё, что могли. Лучше попробовать, чем просто ждать утра».</p>
+            </blockquote>
+            <div class="billet reveal">
+              <p>Теперь в&nbsp;хозяйстве оценивают результат по&nbsp;убранным сортам. На&nbsp;данный момент урожайность составляет около 60&nbsp;тонн с&nbsp;гектара. Это столько&nbsp;же, сколько после прошлогодних заморозков собрали со&nbsp;всего сада. Общий урожай может превысить тысячу тонн, хотя окончательные цифры станут известны только после завершения уборки.</p>
+            </div>
+          </div>
+          <div class="media-photo is-vertical reveal">
+            <img src="assets/img/cold.png" alt="Холод в саду" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ВЫРАСТИТЬ – МАЛО ===================== -->
+    <section class="section is-grey" id="vyrastit">
+      <div class="container">
+        <div class="media-row is-left-photo is-equal">
+          <div class="media-photo is-vertical reveal">
+            <img src="assets/img/hranenie.png" alt="Хранение яблок" loading="lazy" />
+          </div>
+          <div class="media-stack">
+            <div class="screen-header reveal">
+              <h2 class="h2">Вырастить&nbsp;–</h2>
+              <h2 class="h2 is-right-200">мало</h2>
+            </div>
+            <div class="prose prose-wide">
+              <p class="body2 reveal">После уборки яблоки отправляются на&nbsp;хранение и&nbsp;в&nbsp;торговые сети. «Бугагроинвест» реализует урожай преимущественно на&nbsp;белорусском рынке. Осенью яблок много не&nbsp;только в&nbsp;этом хозяйстве, поэтому часть урожая не&nbsp;спешат отправлять в&nbsp;торговые сети. Плоды закладывают на&nbsp;хранение, чтобы продавать зимой и&nbsp;весной, когда местных яблок станет меньше.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="prose prose-full">
+          <p class="body2 reveal">Пока «Бугагроинвест» пользуется фруктохранилищем соседнего ОАО&nbsp;«Остромечево». Рядом со&nbsp;своим садом хозяйство строит собственное&nbsp;— с&nbsp;регулируемой газовой средой. В&nbsp;таких условиях, по&nbsp;словам руководителя, яблоки смогут храниться до&nbsp;мая&nbsp;–&nbsp;июня.</p>
+        </div>
+
+
+
+        <div class="media-row is-right-photo">
+          <div class="media-stack">
+            <blockquote class="quote reveal">
+              <p>«Когда сажаешь первые гектары, думаешь прежде всего о&nbsp;том, как вырастить яблоки. А&nbsp;потом оказывается, что собрать урожай&nbsp;— ещё не&nbsp;конец работы. Если хочешь продавать его не&nbsp;только осенью, нужно хранилище. К&nbsp;своему мы шли почти 15&nbsp;лет».</p>
+            </blockquote>
+            <div class="billet is-gold reveal">
+              <p>Но&nbsp;на&nbsp;хранение отправятся не&nbsp;все плоды. Уже во&nbsp;время уборки яблоки разделяют по&nbsp;размеру с&nbsp;помощью простого калибратора. Те, что помельче, хозяйство поставляет на&nbsp;Малоритский консервноовощесушильный комбинат на&nbsp;переработку.</p>
+            </div>
+          </div>
+          <div class="media-photo is-vertical reveal">
+            <img src="assets/img/postavki.png" alt="Поставки яблок" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== «ЯБЛОКО – ОСНОВА» ===================== -->
+    <section class="section is-white" id="osnova">
+      <div class="container">
+        <div class="media-row is-left-photo">
+          <div class="media-photo is-vertical reveal">
+            <img src="assets/img/osn_apple.png" alt="Яблоневый сад" loading="lazy" />
+          </div>
+          <div class="media-stack">
+            <div class="screen-header reveal">
+              <h2 class="h2">«Яблоко&nbsp;–</h2>
+              <h2 class="h2 is-right-100">основа»</h2>
+            </div>
+            <div class="prose">
+              <p class="body2 reveal">Клецкое предприятие «Гамма вкуса» из&nbsp;переработанных овощей, фруктов и&nbsp;ягод производит соки, пюре, фруктовые десерты и&nbsp;различную консервацию. Яблоко&nbsp;— ключевой ингредиент для детского ассортимента.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="media-row is-right-photo is-equal">
+          <div class="media-stack">
+            <blockquote class="quote is-gold reveal">
+              <p>«Наша позиция, как производителя, такова: детки должны кушать то, что произрастает в&nbsp;той местности, где они родились. Яблоко&nbsp;— это первый фрукт, который вводят в&nbsp;прикорм. Повторюсь, именно фрукт, поскольку вводят и&nbsp;овощи. Поэтому, конечно, яблоко&nbsp;— основа нашего производства».</p>
+            </blockquote>
+          </div>
+          <div class="media-photo is-vertical reveal">
+            <img src="assets/img/director.png" alt="Уборка яблок" loading="lazy" />
+          </div>
+        </div>
+
+        <div class="media-row is-left-photo">
+          <div class="carousel is-horizontal reveal" data-carousel>
+            <div class="carousel-track">
+              <div class="carousel-slide is-active"><img src="assets/img/sad.jpg" alt="Яблоневый сад" loading="lazy" /></div>
+              <div class="carousel-slide"><img src="assets/img/uborka.jpg" alt="Уборка яблок" loading="lazy" /></div>
+              <div class="carousel-slide"><img src="assets/img/rannie_sorta.jpg" alt="Ранние сорта яблок" loading="lazy" /></div>
+              <div class="carousel-slide"><img src="assets/img/hranenie.png" alt="Хранение яблок" loading="lazy" /></div>
+            </div>
+            <button class="carousel-btn carousel-prev" type="button" aria-label="Предыдущее фото">‹</button>
+            <button class="carousel-btn carousel-next" type="button" aria-label="Следующее фото">›</button>
+            <div class="carousel-dots">
+              <button class="carousel-dot is-active" type="button" aria-label="Фото 1"></button>
+              <button class="carousel-dot" type="button" aria-label="Фото 2"></button>
+              <button class="carousel-dot" type="button" aria-label="Фото 3"></button>
+              <button class="carousel-dot" type="button" aria-label="Фото 4"></button>
+            </div>
+          </div>
+          <div class="media-stack">
+            <div class="prose">
+              <p class="body2 reveal">Мы выпускаем как монопюре, так и&nbsp;различные сочетания: яблоко с&nbsp;малиной, черникой, клюквой, киви, грушей, бананом и&nbsp;другими фруктами и&nbsp;ягодами. Линейка большая, сейчас готовим новинку с&nbsp;манго. Плюс мы купажируем яблоко с&nbsp;овощами, например тыква&nbsp;–&nbsp;банан&nbsp;–&nbsp;яблоко, кабачок&nbsp;–&nbsp;яблоко. Не&nbsp;всегда дети охотно едят овощи в&nbsp;чистом виде, а&nbsp;яблоко позволяет сделать вкус приятнее.</p>
+            </div>
+            <div class="prose">
+              <p class="body2 reveal">К&nbsp;детской продукции у&nbsp;нас в&nbsp;стране, как известно, очень серьёзные требования. И&nbsp;чтобы сырьевая база соответствовала всем стандартам, в&nbsp;2011-м на&nbsp;предприятии решили заложить собственный сад.</p>
+            </div>
+          </div>
+        </div>
+
+        <blockquote class="quote is-green is-full reveal">
+          <p>«Мы единственный перерабатывающий завод, который самостоятельно выращивает для себя сырьё. Для детского питания важна кислотность яблок&nbsp;— она не&nbsp;должна быть выше 0,8&nbsp;%. Этот показатель зависит от&nbsp;сорта, поэтому основная часть яблонь в&nbsp;саду&nbsp;— „белорусское сладкое“. Это отечественный сорт, плоды которого имеют низкую кислотность и&nbsp;высокое содержание растворимых сухих веществ».</p>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- ===================== ГАЛЕРЕЯ ===================== -->
+    <section class="section gallery-section" aria-label="Галерея фотографий">
+      <div class="container">
+        <div class="gallery" data-gallery>
+          <div class="gallery-track">
+            <div class="gallery-slide"><img src="assets/img/rannie_sorta.jpg" alt="Ранние сорта яблок" loading="lazy" /></div>
+            <div class="gallery-slide"><img src="assets/img/hranenie.png" alt="Хранение яблок" loading="lazy" /></div>
+            <div class="gallery-slide"><img src="assets/img/postavki.png" alt="Поставки яблок" loading="lazy" /></div>
+            <div class="gallery-slide"><img src="assets/img/cold.png" alt="Холод в саду" loading="lazy" /></div>
+            <div class="gallery-slide"><img src="assets/img/drop_apple.jpg" alt="Яблоки на хранении" loading="lazy" /></div>
+          </div>
+          <button class="gallery-btn gallery-prev" type="button" aria-label="Предыдущее фото">‹</button>
+          <button class="gallery-btn gallery-next" type="button" aria-label="Следующее фото">›</button>
+          <div class="gallery-dots">
+            <button class="gallery-dot is-active" type="button" aria-label="Фото 1"></button>
+            <button class="gallery-dot" type="button" aria-label="Фото 2"></button>
+            <button class="gallery-dot" type="button" aria-label="Фото 3"></button>
+            <button class="gallery-dot" type="button" aria-label="Фото 4"></button>
+            <button class="gallery-dot" type="button" aria-label="Фото 5"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== УНИВЕРСАЛЬНЫЙ ПОЛУФАБРИКАТ ===================== -->
+    <section class="section is-grey" id="polufabrikat">
+      <div class="container">
+        <div class="media-row is-left-photo">
+          <div class="media-photo is-vertical reveal">
+            <img src="assets/img/osn_apple.png" alt="Яблоки на переработке" loading="lazy" />
+          </div>
+          <div class="media-stack">
+            <div class="screen-header reveal">
+              <h2 class="h2">Универсальный</h2>
+              <h2 class="h2 is-right-200">полуфабрикат</h2>
+            </div>
+            <div class="prose prose-wide">
+              <p class="body2 reveal">Своими яблоками завод закрывает около 30&nbsp;% от&nbsp;всей потребности. Остальное закупают у&nbsp;фермеров, сельхозорганизаций и&nbsp;у&nbsp;населения. Правда, перед тем как отправить эти партии плодов на&nbsp;переработку, их проверяют в&nbsp;собственной аккредитованной лаборатории.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="media-row is-right-photo">
+          <div class="media-stack">
+            <blockquote class="quote reveal">
+              <p>«Основной показатель, который нас интересует, это сухие вещества и&nbsp;кислотность. От&nbsp;этого зависит, на&nbsp;производство какой продукции плоды пойдут».</p>
+            </blockquote>
+            <div class="prose">
+              <p class="body2 reveal">Поскольку у&nbsp;завода нет хранилища, то&nbsp;яблоки стараются как можно быстрее переработать в&nbsp;пюре-полуфабрикат. В&nbsp;последующем из&nbsp;него делают детское питание, соки или продают другим предприятиям, например кондитерским.</p>
+            </div>
+          </div>
+          <div class="media-photo is-vertical reveal">
+            <img src="assets/img/upast_negde.png" alt="Переработка яблок" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ПО ВСЕМ КАНОНАМ ===================== -->
+    <section class="section is-white" id="kanony">
+      <div class="container">
+        <div class="media-row is-left-photo">
+          <div class="media-photo is-vertical reveal">
+            <img src="assets/img/sad.jpg" alt="Яблоневый сад" loading="lazy" />
+          </div>
+          <div class="media-stack">
+            <div class="screen-header reveal">
+              <h2 class="h2">По&nbsp;всем</h2>
+              <h2 class="h2 is-right-100">канонам</h2>
+            </div>
+            <div class="prose">
+              <p class="body2 reveal">Пока на&nbsp;заводе активно перерабатывают яблоки нового урожая, в&nbsp;саду продолжается сбор. Яблони здесь занимают 137&nbsp;гектаров, остальные 20&nbsp;— делят между собой смородина, крыжовник, малина. Есть здесь и&nbsp;свой питомник, где на&nbsp;смену старым деревьям растят молодые.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="collage is-reverse">
+          <div class="collage-text">
+            <p class="body2 reveal">Помимо «белорусского сладкого» здесь растёт ещё 15&nbsp;сортов. Среди них как отечественные, так и&nbsp;зарубежные: «Дарунок», «алеся», «антоновка», «чемпион», «лигол», «хани крисп», «глостер», «найдаред» и&nbsp;другие. В&nbsp;этом году урожай богатый, в&nbsp;среднем с&nbsp;четырёх яблонь собирают по&nbsp;300&nbsp;килограммов. В&nbsp;лучшие годы за&nbsp;сезон было 950&nbsp;тонн, сейчас идут на&nbsp;рекорд&nbsp;— на&nbsp;данный момент уже почти 1200&nbsp;тонн, и&nbsp;это ещё не&nbsp;всё. По&nbsp;прогнозам агронома, выйдут на&nbsp;полторы тысячи тонн.</p>
+            <p class="body2 reveal">И&nbsp;поскольку здешнее яблоко&nbsp;— основа для детского питания, то&nbsp;и&nbsp;обработка деревьев проводится щадящая и&nbsp;только биологическими препаратами. Упор делается на&nbsp;внесение микроэлементов и&nbsp;витаминов, необходимых для полноценного роста и&nbsp;развития яблонь.</p>
+          </div>
+          <div class="collage-visual reveal">
+            <div class="carousel" data-carousel>
+              <div class="carousel-track">
+                <div class="carousel-slide is-active"><img src="assets/img/uborka.jpg" alt="Уборка яблок" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="assets/img/osn_apple.png" alt="Яблоки на переработке" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="assets/img/rannie_sorta.jpg" alt="Ранние сорта яблок" loading="lazy" /></div>
+              </div>
+              <button class="carousel-btn carousel-prev" type="button" aria-label="Предыдущее фото">‹</button>
+              <button class="carousel-btn carousel-next" type="button" aria-label="Следующее фото">›</button>
+              <div class="carousel-dots">
+                <button class="carousel-dot is-active" type="button" aria-label="Фото 1"></button>
+                <button class="carousel-dot" type="button" aria-label="Фото 2"></button>
+                <button class="carousel-dot" type="button" aria-label="Фото 3"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img class="brand-logo" src="assets/img/logo.png" alt="Логотип «Яблочная история»" width="34" height="34" />
+        <span class="brand-text">Яблочная&nbsp;история</span>
+      </div>
+      <div class="footer-meta">
+        <p class="footer-credit">Автор: Александра&nbsp;ЯНКОВИЧ, Арина&nbsp;БОГДАН</p>
+        <p class="footer-credit">Фото: Александр&nbsp;Кулевский</p>
+        <p class="footer-contact">infong@sb.by</p>
+      </div>
+      <a href="#top" class="to-top" aria-label="Наверх">Наверх&nbsp;↑</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
