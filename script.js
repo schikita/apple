@@ -259,3 +259,214 @@
     if (e.key === 'Escape') closeLightbox();
   });
 })();
+
+/* ============================================================
+   Mini-game: collect apples (pure JS canvas)
+   ============================================================ */
+(function () {
+  'use strict';
+  var canvas = document.getElementById('gameCanvas');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var scoreEl = document.getElementById('gameScore');
+  var timeEl = document.getElementById('gameTime');
+  var startBtn = document.getElementById('gameStart');
+
+  var W = canvas.width, H = canvas.height;
+  var GROUND_H = 90;
+  var TREES = [];
+  var apples = [];
+  var score = 0;
+  var timeLeft = 60;
+  var running = false;
+  var lastT = 0;
+  var spawnAcc = 0;
+  var elapsed = 0;
+
+  function buildTrees() {
+    TREES = [];
+    var n = 5;
+    for (var i = 0; i < n; i++) {
+      var x = (i + 0.5) * (W / n);
+      TREES.push({
+        x: x,
+        baseY: H - GROUND_H,
+        canopyY: H - GROUND_H - 140,
+        canopyR: 54 + (i % 2) * 14
+      });
+    }
+  }
+
+  function spawnApple(now) {
+    var tree = TREES[Math.floor(Math.random() * TREES.length)];
+    var angle = (Math.random() - 0.5) * 1.2;
+    var ox = Math.cos(angle) * (tree.canopyR * 0.7);
+    var oy = Math.sin(angle) * (tree.canopyR * 0.55) - tree.canopyR * 0.18;
+    var y = tree.canopyY + oy;
+    apples.push({
+      x: tree.x + ox,
+      y: y,
+      startY: y,
+      state: 'green',
+      greenTime: 2200 + Math.random() * 3600,
+      born: now,
+      fallStart: 0,
+      fallDur: 2400,
+      radius: 16,
+      collected: false
+    });
+  }
+
+  function drawBackground() {
+    var g = ctx.createLinearGradient(0, 0, 0, H);
+    g.addColorStop(0, '#8ec7ef');
+    g.addColorStop(0.7, '#cfe4f2');
+    g.addColorStop(1, '#dff0d8');
+    ctx.fillStyle = g;
+    ctx.fillRect(0, 0, W, H);
+    // sun
+    ctx.fillStyle = 'rgba(255,240,180,0.9)';
+    ctx.beginPath(); ctx.arc(W - 80, 70, 40, 0, Math.PI * 2); ctx.fill();
+    // clouds
+    ctx.fillStyle = 'rgba(255,255,255,0.72)';
+    [[120, 70], [410, 50], [720, 92]].forEach(function (c) {
+      ctx.beginPath(); ctx.ellipse(c[0], c[1], 52, 22, 0, 0, Math.PI * 2); ctx.fill();
+      ctx.beginPath(); ctx.ellipse(c[0] + 32, c[1] - 12, 34, 18, 0, 0, Math.PI * 2); ctx.fill();
+    });
+    // ground
+    ctx.fillStyle = '#6aa84f';
+    ctx.fillRect(0, H - GROUND_H, W, GROUND_H);
+    ctx.fillStyle = '#5b9440';
+    ctx.fillRect(0, H - GROUND_H + 20, W, GROUND_H - 20);
+    ctx.strokeStyle = '#4c8a34';
+    ctx.lineWidth = 2;
+    for (var i = 0; i < W; i += 12) {
+      ctx.beginPath(); ctx.moveTo(i, H - GROUND_H); ctx.lineTo(i + 4, H - GROUND_H - 10); ctx.stroke();
+    }
+  }
+
+  function drawTree(t) {
+    ctx.fillStyle = '#7a4a2b';
+    ctx.fillRect(t.x - 14, t.baseY - 120, 28, 120);
+    ctx.fillStyle = '#3f7d3a';
+    ctx.beginPath(); ctx.arc(t.x, t.canopyY, t.canopyR, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = '#4f9a48';
+    ctx.beginPath(); ctx.arc(t.x - t.canopyR * 0.3, t.canopyY - t.canopyR * 0.25, t.canopyR * 0.7, 0, Math.PI * 2); ctx.fill();
+  }
+
+  function drawApple(a) {
+    var color = a.state === 'green' ? '#7cb342' : a.state === 'red' ? '#c62828' : '#8d6e63';
+    ctx.fillStyle = color;
+    ctx.beginPath(); ctx.arc(a.x, a.y, a.radius, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = 'rgba(255,255,255,0.25)';
+    ctx.beginPath(); ctx.arc(a.x - 5, a.y - 6, a.radius * 0.35, 0, Math.PI * 2); ctx.fill();
+    ctx.strokeStyle = '#5a3a22'; ctx.lineWidth = 3;
+    ctx.beginPath(); ctx.moveTo(a.x, a.y - a.radius); ctx.quadraticCurveTo(a.x + 4, a.y - a.radius - 8, a.x + 9, a.y - a.radius - 6); ctx.stroke();
+    ctx.fillStyle = '#6a8f5f';
+    ctx.beginPath(); ctx.ellipse(a.x + 10, a.y - a.radius - 2, 9, 4, -0.4, 0, Math.PI * 2); ctx.fill();
+  }
+
+  function gameLoop(now) {
+    if (!running) return;
+    var dt = Math.min((now - lastT) / 1000, 0.05);
+    lastT = now;
+    elapsed += dt;
+    var speed = 1 + (elapsed / 60) * 1.3;
+
+    spawnAcc += dt * (1.1 + elapsed / 16);
+    while (spawnAcc > 1) { spawnApple(now); spawnAcc -= 1; }
+
+    apples.forEach(function (a) {
+      if (a.collected) return;
+      if (a.state === 'green') {
+        if ((now - a.born) >= a.greenTime) {
+          a.state = 'red';
+          a.fallStart = now;
+          a.startY = a.y;
+        }
+      } else if (a.state === 'red') {
+        var ft = now - a.fallStart;
+        var p = Math.min(ft / (a.fallDur / speed), 1);
+        a.y = a.startY + p * (H - GROUND_H + 34 - a.startY);
+        a.x += Math.sin(now / 90 + a.fallStart) * 0.25;
+        if (ft >= 3000) a.state = 'brown';
+      } else if (a.state === 'brown') {
+        var ft2 = now - a.fallStart;
+        var p2 = Math.min(ft2 / (a.fallDur / speed), 1);
+        a.y = a.startY + p2 * (H - GROUND_H + 34 - a.startY);
+      }
+    });
+
+    apples = apples.filter(function (a) {
+      if (a.collected) return false;
+      if (a.state === 'brown' && (now - a.fallStart) > 7000) return false;
+      return true;
+    });
+
+    timeLeft -= dt;
+    if (timeLeft <= 0) { timeLeft = 0; endGame(); return; }
+
+    drawBackground();
+    TREES.forEach(drawTree);
+    apples.forEach(drawApple);
+
+    if (scoreEl) scoreEl.textContent = score;
+    if (timeEl) timeEl.textContent = Math.ceil(timeLeft);
+
+    requestAnimationFrame(gameLoop);
+  }
+
+  function endGame() {
+    running = false;
+    if (startBtn) startBtn.textContent = 'Играть снова';
+    drawBackground();
+    TREES.forEach(drawTree);
+    apples.forEach(drawApple);
+    ctx.fillStyle = 'rgba(20,26,18,0.55)';
+    ctx.fillRect(0, 0, W, H);
+    ctx.fillStyle = '#fff';
+    ctx.textAlign = 'center';
+    ctx.font = 'bold 42px Comfortaa, sans-serif';
+    ctx.fillText('Время вышло!', W / 2, H / 2 - 16);
+    ctx.font = '26px Comfortaa, sans-serif';
+    ctx.fillText('Очки: ' + score, W / 2, H / 2 + 32);
+    ctx.textAlign = 'left';
+  }
+
+  function startGame() {
+    apples = [];
+    score = 0;
+    timeLeft = 60;
+    elapsed = 0;
+    spawnAcc = 0;
+    if (scoreEl) scoreEl.textContent = '0';
+    if (timeEl) timeEl.textContent = '60';
+    buildTrees();
+    running = true;
+    lastT = performance.now();
+    if (startBtn) startBtn.textContent = 'Заново';
+    requestAnimationFrame(gameLoop);
+  }
+
+  canvas.addEventListener('click', function (e) {
+    if (!running) return;
+    var rect = canvas.getBoundingClientRect();
+    var sx = (e.clientX - rect.left) * (W / rect.width);
+    var sy = (e.clientY - rect.top) * (H / rect.height);
+    var hit = null;
+    for (var i = apples.length - 1; i >= 0; i--) {
+      var a = apples[i];
+      if (Math.hypot(a.x - sx, a.y - sy) < a.radius + 8) { hit = a; break; }
+    }
+    if (hit) {
+      if (hit.state === 'red') { score += 1; hit.collected = true; }
+      else if (hit.state === 'brown') { score -= 1; hit.collected = true; }
+    }
+  });
+
+  if (startBtn) startBtn.addEventListener('click', startGame);
+
+  buildTrees();
+  drawBackground();
+  TREES.forEach(drawTree);
+})();

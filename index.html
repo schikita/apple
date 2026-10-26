@@ -416,6 +416,21 @@
       </div>
     </section>
 
+    <!-- ===================== МИНИ-ИГРА ===================== -->
+    <section class="section game-section" aria-label="Мини-игра «Собери яблоки»">
+      <div class="container">
+        <div class="game-wrap">
+          <div class="game-hud">
+            <div class="game-stat">🍎 Очки: <span id="gameScore">0</span></div>
+            <div class="game-stat">⏱ Время: <span id="gameTime">60</span> с</div>
+            <button class="game-start" id="gameStart" type="button">Играть</button>
+          </div>
+          <canvas id="gameCanvas" width="900" height="520"></canvas>
+          <p class="game-hint">Собирайте <b>красные</b> яблоки за 3 сек. <b>Коричневые</b> не трогайте — минус очки!</p>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- ===================== FOOTER ===================== -->
