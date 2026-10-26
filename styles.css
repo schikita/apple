@@ -1462,24 +1462,16 @@ ol {
 }
 
 .projects-section {
-  background: url('assets/img/bg-projects.jpg');
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+    url('assets/img/bg-projects.jpg') center / cover no-repeat;
   background-position: center center;
-  background-size: cover;        /* чтобы картинка заполняла секцию */
-  background-repeat: no-repeat;
   position: relative;
   z-index: 2;
   padding: clamp(70px, 10vw, 120px) 0 clamp(40px, 6vw, 60px);
 }
 
-/* Затемняющий слой */
-.projects-section::before {
-  content: "";
-  position: absolute;
-  inset: 0;                      /* top/right/bottom/left: 0 */
-  background: rgba(0, 0, 0, 0.55); /* регулируйте прозрачность */
-  z-index: -1;                   /* под контентом, но над фоном */
-  pointer-events: none;          /* не мешает кликам */
-}
+/* Затемнение фона секции выполнено в .projects-section (градиент поверх bg-projects.jpg) */
 
 .section-header.centered {
   text-align: center;
