@@ -433,21 +433,73 @@
 
   </main>
 
-  <!-- ===================== FOOTER ===================== -->
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="footer-brand">
-        <img class="brand-logo" src="assets/img/logo.png" alt="Логотип «Яблочная история»" width="34" height="34" />
-        <span class="brand-text">Яблочная&nbsp;история</span>
-      </div>
-      <div class="footer-meta">
-        <p class="footer-credit">Автор: Александра&nbsp;ЯНКОВИЧ, Арина&nbsp;БОГДАН</p>
-        <p class="footer-credit">Фото: Александр&nbsp;Кулевский</p>
-        <p class="footer-contact">infong@sb.by</p>
-      </div>
-      <a href="#top" class="to-top" aria-label="Наверх">Наверх&nbsp;↑</a>
+  <div class="projects-footer-band">
+    <div class="projects-footer-band__bg" aria-hidden="true">
+      <img loading="lazy" src="assets/img/projects-band.jpg" alt="" decoding="async">
     </div>
-  </footer>
+    <div class="projects-footer-band__overlay" aria-hidden="true"></div>
+
+    <section class="section projects-section" id="projects" aria-label="Живой репортаж — материалы">
+      <div class="projects-inner container">
+        <div class="section-header centered" data-reveal>
+          <h2 class="section-title">Живой репортаж — материалы</h2>
+        </div>
+
+        <div class="projects-viewport" data-reveal data-autoplay="true" data-interval="5000">
+          <div class="projects-stage">
+            <a href="https://www.sb.by/sp/voencore2026/" class="project-card" target="_blank" rel="noopener noreferrer">
+              <img loading="lazy" src="assets/img/projects/Voenkor2026-28-08-2026-44.jpg" alt="Дневник Капитана Кастрюли" decoding="async">
+
+              <div class="project-info">
+                <h3>Дневник Капитана Кастрюли</h3>
+              </div>
+            </a>
+            <a href="https://www.sb.by/sp/stilnyy-delovoy/" class="project-card is-active" target="_blank" rel="noopener noreferrer">
+              <img loading="lazy" src="assets/img/projects/hero.jpg" alt="СТИЛЬНЫЙ ДЕЛОВОЙ" decoding="async">
+
+              <div class="project-info">
+                <h3>Стильный деловой</h3>
+              </div>
+            </a>
+            <a href="https://www.sb.by/sp/biatlon/" class="project-card" target="_blank" rel="noopener noreferrer">
+              <img loading="lazy" src="assets/img/projects/2.jpg" alt="Ягодка что надо!" decoding="async">
+
+              <div class="project-info">
+                <h3>Сила на селе</h3>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="projects-footer" data-reveal>
+          <a
+            href="https://www.sb.by/articles/themes/spetsproekt-sb-nash-zhivoy-reportazh/"
+            class="btn-all-projects"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Смотреть все материалы
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <div class="site-footer__credits">
+          <p><strong>Текст:</strong> <a class="site-footer__link" href="https://www.sb.by/author/1320036-elena-kukshinskaya/">Елена Кукшинская</a></p>
+          <p><strong>Фото:</strong> <a class="site-footer__link" href="https://www.sb.by/author/photographers/1251989-andrey-sazonov/" target="_blank" rel="noopener noreferrer">Андрей Сазонов</a></p>
+        </div>
+        <p class="site-footer__copy">&copy; 2026 · Издательский дом «Беларусь сегодня»</p>
+      </div>
+    </footer>
+  </div>
+
+  <button class="back-to-top" id="back-to-top" type="button" aria-label="Наверх" hidden>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+      <path d="M12 19V5M5 12l7-7 7 7"/>
+    </svg>
+  </button>
 
   <div class="lightbox" id="lightbox" aria-hidden="true">
     <button class="lightbox-close" id="lightboxClose" aria-label="Закрыть">×</button>

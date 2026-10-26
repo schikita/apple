@@ -79,7 +79,7 @@
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
 
-    document.querySelectorAll('.reveal').forEach(function (el) { revealObs.observe(el); });
+    document.querySelectorAll('.reveal, [data-reveal]').forEach(function (el) { revealObs.observe(el); });
 
     // Count-up numbers when they enter viewport
     const countObs = new IntersectionObserver(function (entries) {
@@ -110,7 +110,7 @@
     sections.forEach(function (s) { sectionObs.observe(s); });
   } else {
     // Fallback: show everything, set final numbers immediately
-    document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
+    document.querySelectorAll('.reveal, [data-reveal]').forEach(function (el) { el.classList.add('in'); });
     document.querySelectorAll('[data-count]').forEach(function (el) {
       const decimals = parseInt(el.dataset.decimals || '0', 10);
       let text;
@@ -265,6 +265,7 @@
    ============================================================ */
 (function () {
   'use strict';
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var canvas = document.getElementById('gameCanvas');
   if (!canvas) return;
   var ctx = canvas.getContext('2d');
@@ -469,4 +470,117 @@
   buildTrees();
   drawBackground();
   TREES.forEach(drawTree);
+
+
+  /* ---------- Back to top ---------- */
+  const backToTop = document.getElementById('back-to-top');
+  if (backToTop) {
+    let revealed = false;
+    const syncBackToTop = () => {
+      const show = window.scrollY > window.innerHeight * 0.8;
+      if (show && !revealed) {
+        revealed = true;
+        backToTop.hidden = false;
+      }
+      backToTop.classList.toggle('is-visible', show);
+    };
+    syncBackToTop();
+    window.addEventListener('scroll', syncBackToTop, { passive: true });
+    window.addEventListener('resize', syncBackToTop);
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+    });
+  }
+
+  /* ---------- Projects carousel (footer band, #projects) ---------- */
+  const projectsViewport = document.querySelector('.projects-viewport');
+  if (projectsViewport) {
+    const projectCards = [...projectsViewport.querySelectorAll('.project-card')];
+    if (projectCards.length) {
+      const total = projectCards.length;
+      const interval = Math.max(2500, Number(projectsViewport.dataset.interval) || 5000);
+      // Three or more cards: the neighbours can step aside, so autoplay is safe
+      const autoplay = projectsViewport.dataset.autoplay === 'true' && !reduceMotion && total > 2;
+
+      let active = projectCards.findIndex((card) => card.classList.contains('is-active'));
+      if (active < 0) active = 0;
+      let timer = 0;
+      let pointerInside = false;
+      let focusInside = false;
+      let onScreen = true;
+
+      const render = () => {
+        projectCards.forEach((card, index) => {
+          const offset = (index - active + total) % total;
+          card.classList.toggle('is-active', offset === 0);
+          card.classList.toggle('is-next', total > 2 && offset === 1);
+          card.classList.toggle('is-prev', total > 2 && offset === total - 1);
+        });
+      };
+
+      const stop = () => {
+        window.clearInterval(timer);
+        timer = 0;
+      };
+
+      const step = (delta) => {
+        active = (active + delta + total) % total;
+        render();
+      };
+
+      const start = () => {
+        stop();
+        if (!autoplay || pointerInside || focusInside || !onScreen || document.hidden) return;
+        timer = window.setInterval(() => step(1), interval);
+      };
+
+      render();
+      start();
+
+      /* The band waits while the pointer or the keyboard is inside it */
+      projectsViewport.addEventListener('mouseenter', () => { pointerInside = true; stop(); });
+      projectsViewport.addEventListener('mouseleave', () => { pointerInside = false; start(); });
+      projectsViewport.addEventListener('focusin', () => { focusInside = true; stop(); });
+      projectsViewport.addEventListener('focusout', () => { focusInside = false; start(); });
+
+      /* And it never cycles off screen or in a hidden tab */
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver((entries) => {
+          onScreen = entries[0].isIntersecting;
+          if (onScreen) start(); else stop();
+        }).observe(projectsViewport);
+      }
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) stop(); else start();
+      });
+
+      /* Clicking a neighbour brings it forward; the active card opens its link */
+      projectCards.forEach((card, index) => {
+        card.addEventListener('click', (e) => {
+          if (index === active) return;
+          e.preventDefault();
+          active = index;
+          render();
+          start();
+        });
+      });
+
+      projectsViewport.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') { e.preventDefault(); step(-1); start(); }
+        if (e.key === 'ArrowRight') { e.preventDefault(); step(1); start(); }
+      });
+
+      /* Swipe on touch screens */
+      let touchStartX = 0;
+      projectsViewport.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].clientX;
+      }, { passive: true });
+      projectsViewport.addEventListener('touchend', (e) => {
+        const dx = e.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(dx) < 40) return;
+        step(dx < 0 ? 1 : -1);
+        start();
+      }, { passive: true });
+    }
+  }
 })();
