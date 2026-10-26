@@ -331,7 +331,7 @@
 
         <div class="media-row is-left-photo">
           <div class="media-photo is-vertical reveal">
-            <img src="assets/img/osn_apple.png" alt="Яблоки на переработке" loading="lazy" />
+            <img src="assets/img/fermers.jpg" alt="Яблоки на переработке" loading="lazy" />
           </div>
           <div class="prose prose-wide">
             <p class="body2 reveal">Своими яблоками завод закрывает около 30&nbsp;% от&nbsp;всей потребности. Остальное закупают у&nbsp;фермеров, сельхозорганизаций и&nbsp;у&nbsp;населения. Правда, перед тем как отправить эти партии плодов на&nbsp;переработку, их проверяют в&nbsp;собственной аккредитованной лаборатории.</p>
@@ -348,8 +348,24 @@
             </div>
           </div>
           <div class="media-photo is-vertical reveal">
-            <img src="assets/img/upast_negde.png" alt="Переработка яблок" loading="lazy" />
+            <img src="assets/img/lab.jpg" alt="Переработка яблок" loading="lazy" />
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== КАРУСЕЛЬ ФОТОГРАФИЙ ===================== -->
+    <section class="section marquee-section" aria-label="Карусель фотографий">
+      <div class="marquee">
+        <div class="marquee-track" id="marqueeTrack">
+          <figure class="marquee-item" data-full="assets/img/slider/1.jpg"><img src="assets/img/slider/1.jpg" alt="Фото 1" loading="lazy" /></figure>
+          <figure class="marquee-item" data-full="assets/img/slider/2.jpg"><img src="assets/img/slider/2.jpg" alt="Фото 2" loading="lazy" /></figure>
+          <figure class="marquee-item" data-full="assets/img/slider/3.jpg"><img src="assets/img/slider/3.jpg" alt="Фото 3" loading="lazy" /></figure>
+          <figure class="marquee-item" data-full="assets/img/slider/4.jpg"><img src="assets/img/slider/4.jpg" alt="Фото 4" loading="lazy" /></figure>
+          <figure class="marquee-item" data-full="assets/img/product/1.jpg"><img src="assets/img/product/1.jpg" alt="Фото 5" loading="lazy" /></figure>
+          <figure class="marquee-item" data-full="assets/img/product/2.jpg"><img src="assets/img/product/2.jpg" alt="Фото 6" loading="lazy" /></figure>
+          <figure class="marquee-item" data-full="assets/img/product/3.jpg"><img src="assets/img/product/3.jpg" alt="Фото 7" loading="lazy" /></figure>
+          <figure class="marquee-item" data-full="assets/img/product/4.jpg"><img src="assets/img/product/4.jpg" alt="Фото 8" loading="lazy" /></figure>
         </div>
       </div>
     </section>
@@ -416,6 +432,11 @@
       <a href="#top" class="to-top" aria-label="Наверх">Наверх&nbsp;↑</a>
     </div>
   </footer>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Закрыть">×</button>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="Фото" />
+  </div>
 
   <script src="script.js"></script>
 </body>

@@ -208,3 +208,54 @@
 
   document.querySelectorAll('[data-gallery]').forEach(initGallery);
 })();
+
+/* ============================================================
+   Marquee carousel + lightbox (pure JS)
+   ============================================================ */
+(function () {
+  'use strict';
+
+  // Duplicate marquee items for a seamless infinite loop
+  var track = document.getElementById('marqueeTrack');
+  if (track && track.children.length) {
+    var items = Array.from(track.children);
+    items.forEach(function (it) { track.appendChild(it.cloneNode(true)); });
+  }
+
+  var lightbox = document.getElementById('lightbox');
+  var lightboxImg = document.getElementById('lightboxImg');
+  var lightboxClose = document.getElementById('lightboxClose');
+
+  function openLightbox(src, alt) {
+    if (!lightbox || !lightboxImg) return;
+    lightboxImg.src = src;
+    lightboxImg.alt = alt || 'Фото';
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    if (!lightbox) return;
+    lightbox.classList.remove('open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.marquee-item').forEach(function (item) {
+    item.addEventListener('click', function () {
+      var img = item.querySelector('img');
+      var full = item.getAttribute('data-full') || (img ? img.src : '');
+      var alt = img ? img.alt : 'Фото';
+      openLightbox(full, alt);
+    });
+  });
+
+  if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+  if (lightbox) lightbox.addEventListener('click', function (e) {
+    if (e.target === lightbox) closeLightbox();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeLightbox();
+  });
+})();
