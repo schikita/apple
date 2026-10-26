@@ -1032,7 +1032,10 @@ ol {
 
 /* ---------- Horizontal gallery carousel ---------- */
 .gallery-section {
-  background: var(--cream-2);
+  background:
+    linear-gradient(rgba(239, 231, 215, 0.82), rgba(239, 231, 215, 0.82)),
+    url("assets/img/slider/bg.jpg") center / cover no-repeat;
+  background-color: var(--cream-2);
 }
 
 .gallery {
