@@ -665,6 +665,8 @@ ol {
 
 /* ---------- Footer ---------- */
 .site-footer {
+  position: relative;
+  z-index: 2;
   background: var(--dark);
   color: var(--cream);
   padding: clamp(48px, 7vw, 80px) 0;
@@ -1578,7 +1580,7 @@ ol {
   gap: 6px;
   font-family: var(--font-round);
   font-size: 0.85rem;
-  color: rgba(247, 242, 236, 0.8);
+  color: rgba(247, 242, 236, 0.95);
 }
 
 .site-footer__credits p {
@@ -1599,7 +1601,7 @@ ol {
 .site-footer__copy {
   font-family: var(--font-round);
   font-size: 0.82rem;
-  color: rgba(247, 242, 236, 0.65);
+  color: rgba(247, 242, 236, 0.85);
   margin: 0;
 }
 
