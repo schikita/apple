@@ -1182,3 +1182,11 @@ ol {
   max-width: none;
   margin: clamp(30px, 5vw, 54px) 0;
 }
+
+/* ---------- Polufabrikat section ---------- */
+#polufabrikat {
+  background:
+    linear-gradient(rgba(239, 231, 215, 0.8), rgba(239, 231, 215, 0.8)),
+    url("assets/img/universe.jpg") center / cover no-repeat;
+  background-color: var(--cream-2);
+}
