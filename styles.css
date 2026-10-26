@@ -1308,3 +1308,52 @@ ol {
   background: rgba(255, 255, 255, 0.28);
   transform: rotate(90deg);
 }
+
+/* ---------- Kanony section ---------- */
+#kanony {
+  background:
+    linear-gradient(rgba(247, 242, 236, 0.8), rgba(247, 242, 236, 0.8)),
+    url("assets/img/pererabotka/bg.jpg") center / cover no-repeat;
+  background-color: var(--cream);
+}
+
+/* ---------- Slow cross-fade ---------- */
+.crossfade {
+  position: relative;
+}
+
+.crossfade-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.crossfade-a {
+  animation: crossfade-a 12s ease-in-out infinite;
+}
+
+.crossfade-b {
+  opacity: 0;
+  animation: crossfade-b 12s ease-in-out infinite;
+}
+
+@keyframes crossfade-a {
+  0%, 40% { opacity: 1; }
+  50%, 90% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes crossfade-b {
+  0%, 40% { opacity: 0; }
+  50%, 90% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .crossfade-a,
+  .crossfade-b {
+    animation: none;
+  }
+}
