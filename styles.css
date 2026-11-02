@@ -243,7 +243,7 @@ ol {
   color: #fff;
   background:
     linear-gradient(to right, rgba(20, 26, 18, 0.82) 0%, rgba(20, 26, 18, 0.5) 50%, rgba(20, 26, 18, 0.3) 100%),
-    url("assets/img/hero.jpg") center / cover no-repeat;
+    url("assets/img/hero.webp") center / cover no-repeat;
   background-color: var(--dark);
   overflow: hidden;
   padding: calc(var(--nav-h) + 40px) 0 60px;
@@ -378,7 +378,7 @@ ol {
 #upast {
   background:
     linear-gradient(rgba(247, 242, 236, 0.8), rgba(247, 242, 236, 0.8)),
-    url("assets/img/drop_apple.jpg") center / cover no-repeat;
+    url("assets/img/drop_apple.webp") center / cover no-repeat;
   background-color: var(--cream);
 }
 
@@ -386,7 +386,7 @@ ol {
 #intro {
   background:
     linear-gradient(rgba(247, 242, 236, 0.82), rgba(247, 242, 236, 0.82)),
-    url("assets/img/second.png") center / cover no-repeat;
+    url("assets/img/second.webp") center / cover no-repeat;
   background-color: var(--cream-2);
 }
 
@@ -1020,7 +1020,7 @@ ol {
 #vyrastit {
   background:
     linear-gradient(rgba(239, 231, 215, 0.8), rgba(239, 231, 215, 0.8)),
-    url("assets/img/virostit_malo.jpg") center / cover no-repeat;
+    url("assets/img/virostit_malo.webp") center / cover no-repeat;
   background-color: var(--cream-2);
 }
 
@@ -1042,7 +1042,7 @@ ol {
 #osnova {
   background:
     linear-gradient(rgba(247, 242, 236, 0.8), rgba(247, 242, 236, 0.8)),
-    url("assets/img/osnova.jpg") center / cover no-repeat;
+    url("assets/img/osnova.webp") center / cover no-repeat;
   background-color: var(--cream);
 }
 
@@ -1050,7 +1050,7 @@ ol {
 .gallery-section {
   background:
     linear-gradient(rgba(239, 231, 215, 0.82), rgba(239, 231, 215, 0.82)),
-    url("assets/img/slider/bg.jpg") center / cover no-repeat;
+    url("assets/img/slider/bg.webp") center / cover no-repeat;
   background-color: var(--cream-2);
 }
 
@@ -1208,7 +1208,7 @@ ol {
 #polufabrikat {
   background:
     linear-gradient(rgba(239, 231, 215, 0.8), rgba(239, 231, 215, 0.8)),
-    url("assets/img/universe.jpg") center / cover no-repeat;
+    url("assets/img/universe.webp") center / cover no-repeat;
   background-color: var(--cream-2);
 }
 
@@ -1331,7 +1331,7 @@ ol {
 #kanony {
   background:
     linear-gradient(rgba(247, 242, 236, 0.8), rgba(247, 242, 236, 0.8)),
-    url("assets/img/pererabotka/bg.jpg") center / cover no-repeat;
+    url("assets/img/pererabotka/bg.webp") center / cover no-repeat;
   background-color: var(--cream);
 }
 
@@ -1477,14 +1477,14 @@ ol {
 .projects-section {
   background:
     linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
-    url('assets/img/bg-projects.jpg') center / cover no-repeat;
+    url('assets/img/bg-projects.webp') center / cover no-repeat;
   background-position: center center;
   position: relative;
   z-index: 2;
   padding: clamp(70px, 10vw, 120px) 0 clamp(40px, 6vw, 60px);
 }
 
-/* Затемнение фона секции выполнено в .projects-section (градиент поверх bg-projects.jpg) */
+/* Затемнение фона секции выполнено в .projects-section (градиент поверх bg-projects.webp) */
 
 .section-header.centered {
   text-align: center;
